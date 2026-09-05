@@ -1,4 +1,4 @@
-/*
+﻿/*
 ===========================================================================
 Copyright (C) 1997-2006 Id Software, Inc.
 
@@ -20,7 +20,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ===========================================================================
 */
 
-#include "qbsp.h"
+#include "bsp.h"
 
 int		nummiptex;
 textureref_t	textureref[MAX_MAP_TEXTURES];
@@ -45,6 +45,7 @@ int	FindMiptex (char *name)
 
 	// load the miptex to get the flags and values
 	sprintf (path, "%stextures/%s.wal", gamedir, name);
+
 	if (TryLoadFile (path, (void **)&mt) != -1)
 	{
 		textureref[i].value = LittleLong (mt->value);

@@ -20,7 +20,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ===========================================================================
 */
 
-#include "qbsp.h"
+#include "bsp.h"
 
 vec3_t draw_mins, draw_maxs;
 qboolean	drawflag;

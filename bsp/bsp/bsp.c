@@ -20,7 +20,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ===========================================================================
 */
 
-#include "qbsp.h"
+#include "bsp.h"
 
 extern	float subdivide_size;
 
@@ -340,7 +340,7 @@ int main (int argc, char **argv)
 	double		start, end;
 	char		path[1024];
 
-	printf ("---- qbsp3 ----\n");
+	printf ("---- bsp ----\n");
 
 	for (i=1 ; i<argc ; i++)
 	{
@@ -478,7 +478,7 @@ int main (int argc, char **argv)
 	}
 
 	if (i != argc - 1)
-		Error ("usage: qbsp3 [options] mapfile");
+		Error ("usage: bsp [options] mapfile");
 
 	start = I_FloatTime ();
 

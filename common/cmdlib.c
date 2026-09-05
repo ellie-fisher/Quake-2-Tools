@@ -1,4 +1,4 @@
-/*
+﻿/*
 ===========================================================================
 Copyright (C) 1997-2006 Id Software, Inc.
 
@@ -34,7 +34,7 @@ Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 #include <libc.h>
 #endif
 
-#define	BASEDIRNAME	"quake2"
+#define	BASEDIRNAME	"baseq2"
 #define PATHSEPERATOR   '/'
 
 // set these before calling CheckParm
@@ -172,17 +172,12 @@ void qprintf (char *format, ...)
 
 /*
 
-qdir will hold the path up to the quake directory, including the slash
 
-  f:\quake\
-  /raid/quake/
-
-gamedir will hold qdir + the game directory (id1, id2, etc)
+gamedir will hold the game directory (id1, id2, etc)
 
   */
 
-char		qdir[1024];
-char		gamedir[1024];
+char gamedir[1024];
 
 void SetQdirFromPath (char *path)
 {
@@ -190,22 +185,20 @@ void SetQdirFromPath (char *path)
 	char	*c;
 	int		len;
 
-	if (!(path[0] == '/' || path[0] == '\\' || path[1] == ':'))
+	if (path[0] != '/' && path[0] != '\\' && path[1] != ':')
 	{	// path is partial
 		Q_getwd (temp);
 		strcat (temp, path);
 		path = temp;
 	}
 
-	// search for "quake2" in path
+	// search for "baseq2" in path
 
 	len = strlen(BASEDIRNAME);
 	for (c=path+strlen(path)-1 ; c != path ; c--)
+	{
 		if (!Q_strncasecmp (c, BASEDIRNAME, len))
 		{
-			strncpy (qdir, path, c+len+1-path);
-			qprintf ("qdir: %s\n", qdir);
-			c += len+1;
 			while (*c)
 			{
 				if (*c == '/' || *c == '\\')
@@ -219,6 +212,7 @@ void SetQdirFromPath (char *path)
 			Error ("No gamedir in %s", path);
 			return;
 		}
+	}
 	Error ("SetQdirFromPath: no '%s' in %s", BASEDIRNAME, path);
 }
 
@@ -239,11 +233,11 @@ char *ExpandArg (char *path)
 char *ExpandPath (char *path)
 {
 	static char full[1024];
-	if (!qdir)
-		Error ("ExpandPath called without qdir set");
+	if (!gamedir)
+		Error ("ExpandPath called without gamedir set");
 	if (path[0] == '/' || path[0] == '\\' || path[1] == ':')
 		return path;
-	sprintf (full, "%s%s", qdir, path);
+	sprintf (full, "%s%s", gamedir, path);
 	return full;
 }
 
@@ -305,7 +299,7 @@ double I_FloatTime (void)
 
 void Q_getwd (char *out)
 {
-#ifdef WIN32
+#ifdef _WIN32
    _getcwd (out, 256);
    strcat (out, "\\");
 #else
