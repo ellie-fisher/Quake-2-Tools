@@ -1,4 +1,4 @@
-/*
+﻿/*
 ===========================================================================
 Copyright (C) 1997-2006 Id Software, Inc.
 
@@ -19,7 +19,7 @@ along with Quake 2 Tools source code; if not, write to the Free Software
 Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 ===========================================================================
 */
-#include "qrad.h"
+#include "rad.h"
 
 #define	MAX_LSTYLES	256
 
@@ -1167,7 +1167,7 @@ void FinalLightFace (int facenum)
 	int			i, j, k, st;
 	vec3_t		lb;
 	patch_t		*patch;
-	triangulation_t	*trian;
+	triangulation_t	*trian = NULL;
 	facelight_t	*fl;
 	float		minlight;
 	float		max, newmax;

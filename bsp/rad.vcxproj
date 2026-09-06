@@ -13,10 +13,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{c2f61c20-dad0-4734-bbf7-d6d99149378e}</ProjectGuid>
-    <RootNamespace>bsp</RootNamespace>
+    <ProjectGuid>{5E921E5E-5372-4A06-9005-0CE98CEB1A62}</ProjectGuid>
+    <RootNamespace>rad</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>bsp</ProjectName>
+    <ProjectName>rad</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
@@ -100,19 +100,10 @@
     <ClCompile Include="..\common\scriplib.c" />
     <ClCompile Include="..\common\threads.c" />
     <ClCompile Include="..\common\trilib.c" />
-    <ClCompile Include="bsp\brushbsp.c" />
-    <ClCompile Include="bsp\bsp.c" />
-    <ClCompile Include="bsp\csg.c" />
-    <ClCompile Include="bsp\faces.c" />
-    <ClCompile Include="bsp\glfile.c" />
-    <ClCompile Include="bsp\leakfile.c" />
-    <ClCompile Include="bsp\map.c" />
-    <ClCompile Include="bsp\nodraw.c" />
-    <ClCompile Include="bsp\portals.c" />
-    <ClCompile Include="bsp\prtfile.c" />
-    <ClCompile Include="bsp\textures.c" />
-    <ClCompile Include="bsp\tree.c" />
-    <ClCompile Include="bsp\writebsp.c" />
+    <ClCompile Include="rad\lightmap.c" />
+    <ClCompile Include="rad\patches.c" />
+    <ClCompile Include="rad\rad.c" />
+    <ClCompile Include="rad\trace.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\common\bspfile.h" />
@@ -126,7 +117,7 @@
     <ClInclude Include="..\common\scriplib.h" />
     <ClInclude Include="..\common\threads.h" />
     <ClInclude Include="..\common\trilib.h" />
-    <ClInclude Include="bsp\bsp.h" />
+    <ClInclude Include="rad\rad.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
